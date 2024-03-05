@@ -1,5 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
-const heading1 = React.createElement("h1", { id: "heading1" }, "Hello world!");
+import AppLayout from "./AppLayout";
+import ReactDOM from 'react-dom/client'
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading1);
+root.render(<AppLayout/>)
