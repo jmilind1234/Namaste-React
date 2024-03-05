@@ -1,3 +1,4 @@
+import {restaurantCardImgUrl} from '../data/const'
 const RestaurantCard = ({ resData }) => {
   const info = resData?.info;
   const sla = resData?.info?.sla;
@@ -6,7 +7,7 @@ const RestaurantCard = ({ resData }) => {
       <img
         className="restaurant-card-image"
         src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660,e_grayscale/" +
+          restaurantCardImgUrl +
           info?.cloudinaryImageId
         }
       />
