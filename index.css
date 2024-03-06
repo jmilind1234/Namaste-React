@@ -62,3 +62,12 @@
     height: 100px;
     border-radius: inherit;
 }
+
+.shimmer-cards{
+    width: 200px;
+    background-color: rgb(179, 166, 154);
+    border-radius: 10%;
+    padding: 10px;
+    margin: 10px;
+    height: 295px;
+}
