@@ -3,33 +3,26 @@ import { restaurants } from "../data/const";
 import { useState } from "react";
 
 const Body = () => {
-  const [topRatedFlag, setTopRatedFlag] = useState(false);
+  const [restaurantsList, setRestaurantLists] = useState(restaurants);
   return (
     <div className="body">
       <div className="search">Search</div>
       <button
         onClick={() => {
-          setTopRatedFlag(true);
+          const filteredRestaurants = restaurantsList.filter(
+            (restaurant) => restaurant?.info?.avgRating > 4.5
+          );
+          console.log(filteredRestaurants);
+          setRestaurantLists(filteredRestaurants);
         }}
       >
         Top rated restaurants
       </button>
-      {!topRatedFlag && (
-        <div className="restaurant-container">
-          {restaurants.map((restaurant) => (
-            <RestaurantCard key={restaurant?.info?.id} resData={restaurant} />
-          ))}
-        </div>
-      )}
-      {topRatedFlag && (
-        <div className="restaurant-container">
-          {restaurants
-            ?.filter((restaurant) => restaurant?.info?.avgRating > 4.5)
-            .map((restaurant) => (
-              <RestaurantCard key={restaurant?.info?.id} resData={restaurant} />
-            ))}
-        </div>
-      )}
+      <div className="restaurant-container">
+        {restaurantsList.map((restaurant) => (
+          <RestaurantCard key={restaurant?.info?.id} resData={restaurant} />
+        ))}
+      </div>
     </div>
   );
 };
