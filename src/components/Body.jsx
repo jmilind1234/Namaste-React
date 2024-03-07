@@ -4,6 +4,9 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [restaurantsList, setRestaurantLists] = useState([]);
+  const [cafeName, setCafeName] = useState("");
+
+  console.log("cafe name to search is ", new RegExp(cafeName, "i"));
 
   // useEffect takes 2 arguments one is callback function and 2nd is dependencies array.
   useEffect(() => {
@@ -33,7 +36,27 @@ const Body = () => {
   }
   return (
     <div className="body">
-      <div className="search">Search</div>
+      <div className="search-area">
+        <input
+          type="text"
+          placeholder="type text here"
+          onChange={(e) => {
+            setCafeName(e?.target?.value);
+          }}
+        />
+        <button
+          onClick={() => {
+            const filteredRestaurants = restaurantsList?.filter(
+              (restaurant) =>
+                restaurant?.info?.name?.search(new RegExp(cafeName, "i")) !== -1
+            );
+            console.log(filteredRestaurants);
+            setRestaurantLists(filteredRestaurants);
+          }}
+        >
+          Search
+        </button>
+      </div>
       <button
         onClick={() => {
           const filteredRestaurants = restaurantsList?.filter(
