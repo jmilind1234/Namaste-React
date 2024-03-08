@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { platformLogo } from "../data/const";
-
+import { Link } from "react-router-dom";
 const Header = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   return (
@@ -10,9 +10,9 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li><a href="/"></a>Home</li>
-          <li><a href="/about">About Us</a></li>
-          <li><a href="/contact">Contact Us</a></li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About Us</Link></li>
+          <li><Link to="/contact">Contact Us</Link></li>
           <li>Cart</li>
           <li>
             <button onClick={() => setLoggedIn(!loggedIn)}>
