@@ -10,9 +10,9 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
+          <li><a href="/"></a>Home</li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact Us</a></li>
           <li>Cart</li>
           <li>
             <button onClick={() => setLoggedIn(!loggedIn)}>
